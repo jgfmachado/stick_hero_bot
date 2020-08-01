@@ -27,12 +27,6 @@ def main():
 
         level += 1
 
-# mouse left click over a given duration
-def mouse_click(duration):
-    pyautogui.mouseDown()
-    time.sleep(duration)
-    pyautogui.mouseUp()
-
 # returns the center position, on the screen, of a given image
 def locate_center_on_image(img):
     return pyautogui.locateCenterOnScreen(img, confidence = 0.9)
