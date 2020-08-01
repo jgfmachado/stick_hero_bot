@@ -1,40 +1,39 @@
 '''
-A bot for Stick Hero
-Requires scrcpy to stream your phone, or an emulator perhaps
-Also requires opencv installed through pip
+A "not so great" bot that plays Stick Hero.
+Requires scrcpy to stream your phone, or an emulator perhaps.
+Also requires opencv installed through pip.
 '''
 
 import pyautogui
 import time
 import subprocess
-import numpy as np
 import math
 
-#pyautogui.displayMousePosition()
-#pyautogui.screenshot('screenshot.png')
-
 def main():
+    level = 1
     while True:
         location_hero = locate_center_on_image("stick_hero_bot\\hero.png")
         location_goal = locate_center_on_image("stick_hero_bot\\goal.png")
-        #pyautogui.moveTo(location_hero)
-        print(location_hero.x)
-        print(location_goal.x)
         
+        print(f"Level: {level}")
         distance = location_goal.x - location_hero.x
-        duration = int(math.floor(distance + np.log(distance) * np.log(distance)))
-        #duration = 0.001 * distance
-        #mouse_click(duration)
+        print(f"Distance: {distance}px")
+        duration = math.ceil(distance*1.188)
+        print(f"Duration: {duration}ms")
 
         exec("adb shell input touchscreen swipe 500 500 500 500 " + str(duration))
 
-        time.sleep(3)
+        time.sleep(2.5)
 
+        level += 1
+
+# mouse left click over a given duration
 def mouse_click(duration):
     pyautogui.mouseDown()
     time.sleep(duration)
     pyautogui.mouseUp()
 
+# returns the center position, on the screen, of a given image
 def locate_center_on_image(img):
     return pyautogui.locateCenterOnScreen(img, confidence = 0.9)
 
