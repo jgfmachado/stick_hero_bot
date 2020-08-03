@@ -23,7 +23,7 @@ def main():
 
         exec("adb shell input touchscreen swipe 500 500 500 500 " + str(duration))
 
-        time.sleep(2.5)
+        time.sleep(3)
 
         level += 1
 
