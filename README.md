@@ -5,4 +5,7 @@ A bot for the android game "Stick Hero"
 <p>Requires <em>scrcpy</em> to stream your phone, or an emulator perhaps.</p>
 <p>Also requires <em>opencv</em> installed through pip.</p>
 <hr>
-<iframe src="https://drive.google.com/file/d/1TXh-4hTtlF26DWHstb4_sosZfNjTAOcY/preview" width="640" height="480" allow="autoplay"></iframe>
+<video width="320" height="240" controls>
+  <source src="https://drive.google.com/file/d/1TXh-4hTtlF26DWHstb4_sosZfNjTAOcY/preview" type="video/mp4">
+Your browser does not support the video tag.
+</video>
